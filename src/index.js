@@ -23,11 +23,8 @@ class ListApp extends React.Component {
 
     filterList(e) {
         var list = this.state.countries
-        var updatedList = list.filter(function(country) {
-            if (country.toLowerCase().search(e.target.value.toLowerCase()) !== -1) {
-                return country
-            }
-        })
+        var updatedList = list.filter(country => country.toLowerCase().search(e.target.value.toLowerCase()) !== -1)
+ 
         this.setState({filteredList: updatedList})
     }
 
@@ -42,12 +39,7 @@ class ListApp extends React.Component {
 
         // remove selected from filtered and overall lists
         var list = this.state.countries
-        var updatedList = list.filter(function(country) {
-            if (updatedselectedList.indexOf(country) === -1) {
-                return country
-            }
-
-        })
+        var updatedList = list.filter(country => updatedselectedList.indexOf(country) === -1)
         this.setState({
             countries: updatedList,
             filteredList: updatedList
@@ -70,12 +62,7 @@ class ListApp extends React.Component {
 
                 // remove selected from overall list
                 var list = this.state.countries
-                var updatedList = list.filter(function(country) {
-                    if (updatedselectedList.indexOf(country) === -1) {
-                        return country
-                    }
-
-                })
+                var updatedList = list.filter(country => updatedselectedList.indexOf(country) === -1)
                 this.setState({countries: updatedList})
             }
         }
